@@ -14,8 +14,9 @@ span {
 .tile {
   float: left;
   width: 24%;
-  border: 1px solid gray;
+  border: 2px solid gray;
   margin: 0.5%;
+  background: url(images/asanoha-400px.png);
 }
 
 .tile img {
@@ -26,6 +27,7 @@ span {
 
 .tile.open img {
   visibility: visible;
+  background-color: white;
 }
 
 .tile.match img {

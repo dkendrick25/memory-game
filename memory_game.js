@@ -2,22 +2,21 @@
 // imgArr = $('.tile').filter(function() {
 //     return $(this).hasClass('open') === true;
 //  });
+//$("img").attr("src", 'images/logo-bw.png');
 
 var state = 'first';
 var lastCard;
 var currentCard;
 var moves = 0;
-$(function() {
 
+$(function() {
   //when click add to class to reveal the card in css
   $('.tile').click(function() {
-    //debugger
+    $(this).addClass('open');
     if(state === 'first') {
-      $(this).addClass('open');
       lastCard = $(this).find('img').attr('src');
       state = 'second';
     } else if (state === 'second') {
-      $(this).addClass('open');
       currentCard = $(this).find('img').attr('src');
       state = 'first';
       //keeps track of every two clicks
