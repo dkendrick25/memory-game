@@ -6,6 +6,7 @@
 var state = 'first';
 var lastCard;
 var currentCard;
+var moves = 0;
 $(function() {
 
   //when click add to class to reveal the card in css
@@ -19,6 +20,8 @@ $('.tile').click(function() {
       $(this).addClass('open');
       currentCard = $(this).find('img').attr('src');
       state = 'first';
+      moves++;
+      $('#moves-count').text(moves);
       if(lastCard != currentCard) {
         setTimeout(function () {
           $('.tile').removeClass('open');
