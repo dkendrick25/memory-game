@@ -10,5 +10,11 @@ $(function() {
       state = 'second';
       $(this).addClass('open');
     }
+    //flips back over after one second when in the second state
+    if(state === 'second') {
+      setTimeout(function () {
+        $('.tile').removeClass('open');
+      }, 2000);
+    }
   });
 });
