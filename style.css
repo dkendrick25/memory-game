@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+#grid {
+
+}
+
+.tile {
+  float: left;
+  width: 24%;
+  border: 1px solid black;
+  margin: 0.5%;
+}
+
+.tile img {
+  width: 100%;
+  display: block;
+  visibility: hidden;
+}
+
+.tile.open img {
+  visibility: visible;
+}
