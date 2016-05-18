@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  color: gray;
+  font-family: Helvetica, sans-serif;
 }
 
 #grid {
