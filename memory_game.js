@@ -8,7 +8,7 @@ var state = 'first';
 var lastCard;
 var currentCard;
 var moves = 0;
-
+var totalCards = 0;
 $(function() {
   //when click add to class to reveal the card in css
   $('.tile').click(function() {
@@ -29,7 +29,12 @@ $(function() {
         }, 500);
       } else {
         $('.open').addClass('match');
+        totalCards = totalCards + 2;
       }
+    }
+
+    if (totalCards === 8) {
+      $('#winner').text('YAY! you win!');
     }
   });
 
