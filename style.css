@@ -9,7 +9,7 @@
 .tile {
   float: left;
   width: 24%;
-  border: 1px solid black;
+  border: 1px solid gray;
   margin: 0.5%;
 }
 

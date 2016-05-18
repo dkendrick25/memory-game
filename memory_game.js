@@ -1,20 +1,29 @@
-var state = '';
+//filter through images and return an array of ones with the open class
+// imgArr = $('.tile').filter(function() {
+//     return $(this).hasClass('open') === true;
+//  });
 
+var state = 'first';
+var lastCard;
+var currentCard;
 $(function() {
+
   //when click add to class to reveal the card in css
-  $('.tile').click(function() {
-    if(state === '') {
-      state = 'first';
+$('.tile').click(function() {
+//debugger
+    if(state === 'first') {
       $(this).addClass('open');
-    } else if (state === 'first') {
+      lastCard = $(this).find('img').attr('src');
       state = 'second';
+    } else if (state === 'second') {
       $(this).addClass('open');
+      var currentCard = $(this).find('img').attr('src');
+      state = 'first';
+      if(lastCard != currentCard) {
+        setTimeout(function () {
+          $('.tile').removeClass('open');
+        }, 1000);
     }
-    //flips back over after one second when in the second state
-    if(state === 'second') {
-      setTimeout(function () {
-        $('.tile').removeClass('open');
-      }, 2000);
     }
   });
 });
