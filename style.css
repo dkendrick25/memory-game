@@ -23,11 +23,12 @@ span {
   width: 100%;
   display: block;
   visibility: hidden;
+  background-color: white;
 }
 
 .tile.open img {
   visibility: visible;
-  background-color: white;
+
 }
 
 .tile.match img {
