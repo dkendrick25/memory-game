@@ -17,13 +17,15 @@ $('.tile').click(function() {
       state = 'second';
     } else if (state === 'second') {
       $(this).addClass('open');
-      var currentCard = $(this).find('img').attr('src');
+      currentCard = $(this).find('img').attr('src');
       state = 'first';
       if(lastCard != currentCard) {
         setTimeout(function () {
           $('.tile').removeClass('open');
-        }, 1000);
-    }
+        }, 800);
+      } else {
+      $('.open').addClass('match');
+      }
     }
   });
 });
