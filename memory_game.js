@@ -2,7 +2,6 @@
 // imgArr = $('.tile').filter(function() {
 //     return $(this).hasClass('open') === true;
 //  });
-//$("img").attr("src", 'images/logo-bw.png');
 
 var state = 'first';
 var lastCard;
@@ -12,6 +11,9 @@ var totalCards = 0;
 $(function() {
   //when click add to class to reveal the card in css
   $('.tile').click(function() {
+    if($(this).hasClass('open')) {
+      return
+    }
     $(this).addClass('open');
     if(state === 'first') {
       lastCard = $(this).find('img').attr('src');
@@ -22,7 +24,7 @@ $(function() {
       //keeps track of every two clicks
       moves++;
       $('#moves-count').text(moves);
-      //compares card
+      //compares card and give matches a new class
       if(lastCard != currentCard) {
         setTimeout(function () {
           $('.tile').removeClass('open');
@@ -32,7 +34,7 @@ $(function() {
         totalCards = totalCards + 2;
       }
     }
-
+    //check for win
     if (totalCards === 8) {
       $('#winner').text('YAY! you win!');
     }
