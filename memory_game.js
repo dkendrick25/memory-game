@@ -10,8 +10,8 @@ var moves = 0;
 $(function() {
 
   //when click add to class to reveal the card in css
-$('.tile').click(function() {
-//debugger
+  $('.tile').click(function() {
+    //debugger
     if(state === 'first') {
       $(this).addClass('open');
       lastCard = $(this).find('img').attr('src');
@@ -20,15 +20,21 @@ $('.tile').click(function() {
       $(this).addClass('open');
       currentCard = $(this).find('img').attr('src');
       state = 'first';
+      //keeps track of every two clicks
       moves++;
       $('#moves-count').text(moves);
+      //compares card
       if(lastCard != currentCard) {
         setTimeout(function () {
           $('.tile').removeClass('open');
-        }, 800);
+        }, 500);
       } else {
-      $('.open').addClass('match');
+        $('.open').addClass('match');
       }
     }
+  });
+
+  $('.reset').click(function() {
+    location.reload();
   });
 });
