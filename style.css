@@ -38,7 +38,7 @@ span {
   border: 2px solid #aaa;
 }
 .tile.open .back,
-.tile.matched .back {
+.tile.match .back {
   transform: rotateY(-180deg);
   backface-visibility: hidden;
 }
