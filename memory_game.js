@@ -62,9 +62,24 @@ function shuffle(arr) {
 }
 
 $(function() {
-  makeTiles(16, 8);
+  //level one is clicked make a 4 x 2 grid
+  $('#level1').click(function() {
+      makeTiles(4, 2);
+      $('.menu').remove();
+  });
+  $('#level2').click(function() {
+      makeTiles(9, 6);
+      $('.menu').remove();
+  });
+  $('#level3').click(function() {
+      makeTiles(16, 8);
+      $('.menu').remove();
+  });
+
+  console.log($('.tile').length);
   //when click add to class to reveal the card in css
-  $('.tile').click(function() {
+  $('#grid').on('click', '.tile', function() {
+    console.log('you clicked ')
     if($(this).hasClass('open')) {
       return
     }
@@ -94,7 +109,7 @@ $(function() {
     }
   });
 
-  $('.reset').click(function() {
+  $('body').on('click', '.reset', function() {
     location.reload();
   });
 });
