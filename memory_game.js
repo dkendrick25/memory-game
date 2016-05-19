@@ -1,14 +1,68 @@
-//filter through images and return an array of ones with the open class
-// imgArr = $('.tile').filter(function() {
-//     return $(this).hasClass('open') === true;
-//  });
 
 var state = 'first';
 var lastCard;
 var currentCard;
 var moves = 0;
 var totalCards = 0;
+//to build grid
+var monsters = [
+     'monsters-01.png',
+     'monsters-02.png',
+     'monsters-03.png',
+     'monsters-04.png',
+     'monsters-05.png',
+     'monsters-06.png',
+     'monsters-07.png',
+     'monsters-08.png',
+     'monsters-09.png',
+     'monsters-10.png',
+     'monsters-11.png',
+     'monsters-12.png',
+     'monsters-13.png',
+     'monsters-14.png',
+     'monsters-15.png',
+     'monsters-16.png'
+   ];
+//loop through array of monster and append html markup to tiles
+function makeTiles() {
+  debugger
+  //leave orig monsters array unchanged
+  var shuffledMonsters = shuffle(monsters);
+  //select the first four shuffledMonsters
+  var chosenMonsters = shuffledMonsters.slice(0, 4);
+  var newMonsters = [];
+  for (var i = 0; i < chosenMonsters.length; i++) {
+    newMonsters.push(chosenMonsters[i], chosenMonsters[i]);
+  }
+  var shuffledNewMonsters = shuffle(newMonsters);
+  //loop through shuffledNewMonsters to make grid with
+    var html = '';
+  for (var i = 0; i < shuffledNewMonsters.length; i++) {
+    html += '<div class="tile">' +
+      '<img class="monster" src="images/' + shuffledNewMonsters[i] + '">' +
+      '<div class="back"></div>' +
+    '</div>';
+  }
+  $('#grid').append(html);
+  $('body').append('<button class="reset">reset game</button>');
+}
+
+
+//shuffle function that takes an array and returns a new shuffled version
+function shuffle(arr) {
+  arr = arr.slice(0);
+  var newArr = [];
+  while (arr.length > 0) {
+    var indx = Math.floor(Math.random() * arr.length);
+    var item = arr[indx];
+    newArr.push(item);
+    arr.splice(indx, 1);
+  }
+  return newArr;
+}
+
 $(function() {
+  makeTiles();
   //when click add to class to reveal the card in css
   $('.tile').click(function() {
     if($(this).hasClass('open')) {
