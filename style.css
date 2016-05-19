@@ -47,3 +47,13 @@ span {
 .tile.match img {
   transform: rotateY(0deg);
 }
+
+.column-6 .tile {
+  width: 15.67%;
+  margin: .05%;
+}
+
+.column-8 .tile {
+  width: 11.5%;
+  margin: .05%;
+}

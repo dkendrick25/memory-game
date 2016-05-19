@@ -24,12 +24,11 @@ var monsters = [
      'monsters-16.png'
    ];
 //loop through array of monster and append html markup to tiles
-function makeTiles() {
-  debugger
+function makeTiles(numMonsters, columns) {
   //leave orig monsters array unchanged
   var shuffledMonsters = shuffle(monsters);
   //select the first four shuffledMonsters
-  var chosenMonsters = shuffledMonsters.slice(0, 4);
+  var chosenMonsters = shuffledMonsters.slice(0, numMonsters);
   var newMonsters = [];
   for (var i = 0; i < chosenMonsters.length; i++) {
     newMonsters.push(chosenMonsters[i], chosenMonsters[i]);
@@ -43,6 +42,7 @@ function makeTiles() {
       '<div class="back"></div>' +
     '</div>';
   }
+  $('#grid').addClass('column-' + columns.toString());
   $('#grid').append(html);
   $('body').append('<button class="reset">reset game</button>');
 }
@@ -62,7 +62,7 @@ function shuffle(arr) {
 }
 
 $(function() {
-  makeTiles();
+  makeTiles(16, 8);
   //when click add to class to reveal the card in css
   $('.tile').click(function() {
     if($(this).hasClass('open')) {
